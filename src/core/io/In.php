@@ -4,14 +4,14 @@ namespace rave\lib\core\io;
 
 class In
 {
-    public static function get($get)
+    public static function get($get, $filter = FILTER_SANITIZE_FULL_SPECIAL_CHARS)
     {
-        return filter_input(INPUT_GET, $get, FILTER_SANITIZE_FULL_SPECIAL_CHARS, FILTER_NULL_ON_FAILURE);
+        return filter_input(INPUT_GET, $get, $filter, FILTER_NULL_ON_FAILURE);
     }
 
-    public static function post($post)
+    public static function post($post, $filter = FILTER_SANITIZE_FULL_SPECIAL_CHARS)
     {
-        return filter_input(INPUT_POST, $post, FILTER_SANITIZE_FULL_SPECIAL_CHARS, FILTER_NULL_ON_FAILURE);
+        return filter_input(INPUT_POST, $post, $filter, FILTER_NULL_ON_FAILURE);
     }
 
     public static function cookie($cookie)
