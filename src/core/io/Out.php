@@ -28,9 +28,9 @@ class Out
         }
     }
 
-    public static function cookie($name, $value, $expire)
+    public static function cookie($name, $value, $expire = 0)
     {
-        setcookie($name, $value, time() + $expire, null, null, false, true);
+        setcookie($name, $value, $expire === 0 ? $expire : time() + $expire, null, null, false, true);
     }
 
     public static function unsetCookie($name)
